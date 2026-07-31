@@ -1,7 +1,8 @@
-# Six and a Half Studios — Legal Pages
+# Six and a Half Studios — sixandahalf.studio
 
-Public legal/policy pages for Six and a Half Studios games, served via GitHub Pages.
+Public studio site + legal pages, served via GitHub Pages at [sixandahalf.studio](https://sixandahalf.studio).
 
-- [`index.html`](index.html) — Privacy Policy for **Underworld Inc.** (`com.sixandahalf.underworldinc`)
+- `index.html` — studio landing page
+- [`privacy/`](privacy/) — Privacy Policy for **Underworld Inc.** (`com.sixandahalf.underworldinc`)
 
 No game code lives here.
