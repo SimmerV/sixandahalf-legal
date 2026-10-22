@@ -13,13 +13,31 @@
   h1 { font-size: 2rem; letter-spacing: .12em; margin: .5rem 0 0; }
   .tag { color: #c9a06a; font-style: italic; margin-top: .25rem; }
   .divider { color: #b3401f; margin: 2.5rem 0 2rem; letter-spacing: .5em; }
-  .game { border: 1px solid #b3401f66; border-radius: 12px; padding: 1.5rem; background: #1a0d0b; }
-  .game h2 { margin: 0 0 .5rem; color: #f0801e; }
-  .soon { display: inline-block; margin-top: 1rem; padding: .4rem 1rem; border: 1px solid #c9a06a88;
-          border-radius: 999px; font-size: .85rem; color: #c9a06a; }
+  .game { border: 1px solid #b3401f66; border-radius: 12px; padding: 1.75rem 1.5rem; background: #1a0d0b; }
+  .game + .game { margin-top: 1.5rem; }
+  .game h2 { margin: 0; color: #f0801e; }
+  .game-head { display: flex; align-items: center; justify-content: center; gap: 1.1rem; margin-bottom: .9rem; }
+  .game-head img { width: 84px; height: 84px; border-radius: 20px; flex: none;
+                   box-shadow: 0 0 0 1px #ffffff14, 0 0 28px 2px #5ad7ff40; }
+  .game-head h2 { text-align: left; line-height: 1.2; }
+  .game-head .kind { display: block; font-size: .8rem; letter-spacing: .14em; text-transform: uppercase;
+                     color: #c9a06a; margin-top: .3rem; }
+  .game p { margin: 0 0 1.2rem; }
+  .store { display: inline-block; padding: .45rem 1.15rem; border: 1px solid #c9a06a88; border-radius: 999px;
+           font-size: .85rem; color: #c9a06a; text-decoration: none; transition: background .15s, border-color .15s; }
+  .store:hover { background: #c9a06a1a; border-color: #c9a06a; }
+  .store .when-soon { display: none; }
+  .store[data-soon] { pointer-events: none; }
+  .store[data-soon] .when-soon { display: inline; }
+  .store[data-soon] .when-live { display: none; }
   a { color: #f0801e; }
   footer { margin-top: 3.5rem; font-size: .8rem; opacity: .65; }
   footer .egg { opacity: .8; }
+  footer .legal { font-size: .72rem; opacity: .7; margin-top: 1.2rem; }
+  @media (max-width: 420px) {
+    .game-head { flex-direction: column; gap: .8rem; }
+    .game-head h2 { text-align: center; }
+  }
 </style>
 </head>
 <body>
@@ -30,12 +48,18 @@
 <p class="divider">⛧ ⛧ ⛧</p>
 
 <div class="game">
-  <h2>Glimmerline</h2>
+  <div class="game-head">
+    <img src="assets/glimmerline-icon.png" alt="Glimmerline icon: a glowing thread winding between two beads" width="84" height="84">
+    <h2>Glimmerline<span class="kind">Light path puzzle · Android</span></h2>
+  </div>
   <p>A light-path puzzle. Draw one thread from bead 1 through every cell,
   pass the beads in order, and finish on the last one. Hundreds of Journey
   levels, a Daily board shared by everyone, and a timer that only ever counts up.
   No game over. Ever.</p>
-  <span class="soon">Coming soon to Google Play</span>
+  <!-- At launch: delete the data-soon attribute. -->
+  <a class="store" data-soon href="https://play.google.com/store/apps/details?id=com.sixandahalf.glimmerline">
+    <span class="when-soon">Coming soon to Google Play</span><span class="when-live">Get it on Google Play ↗</span>
+  </a>
 </div>
 
 <!-- Unpublished until the name is registered.
@@ -52,6 +76,7 @@
   <p><a href="/privacy/">Privacy Policy</a> · <a href="mailto:contact@sixandahalf.studio">contact@sixandahalf.studio</a></p>
   <p class="egg">The elevator is out of service between floors 6 and 7.<br>
   Please use the stairs. There are no stairs.</p>
+  <p class="legal">© 2026 Six and a Half Studios LLC. Google Play is a trademark of Google LLC.</p>
 </footer>
 </body>
 </html>
