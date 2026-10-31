@@ -1,0 +1,39 @@
+{
+  "_comment": "Glimmerline's hosted remote config (ITERATION-7, 2026-10-30): the document served at https://sixandahalf.studio/glimmerline/remote_config.json (copied to the studio site repo as /glimmerline/remote_config.json), the URL config/secrets.json names as remote_config_url before the rc4 release build. The same shape as config/remote_defaults.json, which is the fallback with the same values when this file is unreachable. ads_enabled false: the Google Mobile Ads SDK is never initialized, consent for analytics is the app's own sheet, the Store sells no pass; allowance_enabled false: no daily allowance. The one-line flip: set ads_enabled to true (only after AdMob approves the account and the GDPR and US-state messages are published in AdMob -> Privacy & messaging), push the site repo, and every install picks it up at its next launch after GitHub Pages' cache, about ten minutes; nothing else changes without a release. Units: puzzles, seconds, days; cartridges.<id> holds a cartridge's own values, merged over the flat ones for that app.",
+  "config_version": 2,
+  "ads_enabled": false,
+  "allowance_enabled": false,
+  "allowance_free": 10,
+  "allowance_first_day": 20,
+  "ad_grant": 3,
+  "ad_grants_per_day": 5,
+  "grace_days": 0,
+  "warn_at": 2,
+  "rewarded_total_per_day": 7,
+  "hint_refill_amount": 3,
+  "hint_refill_per_day": 3,
+  "streak_freeze_per_week": 1,
+  "double_stars_per_day": 3,
+  "interstitial_every": 3,
+  "interstitial_min_gap_sec": 90,
+  "interstitial_after_rewarded_gap_sec": 60,
+  "pass_days": 30,
+  "puzzle_pack_size": 30,
+  "hint_pack_size": 10,
+  "first_hint_free": true,
+  "experiments": {
+    "allowance_variant": {
+      "arms": 1
+    }
+  },
+  "tunables": {},
+  "placement_caps": {},
+  "cartridges": {
+    "conduit": {
+      "allowance_free": 15,
+      "allowance_first_day": 25,
+      "ad_grant": 4,
+      "ad_grants_per_day": 5
+    }
+  }
+}
