@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Glimmerline: Light Path Puzzle | Six and a Half Studios</title>
+<meta name="description" content="Draw one thread of light through every cell. Glimmerline is a calm logic puzzle for Android, with a new puzzle every day. Play four levels right here.">
+<meta name="theme-color" content="#0e1430">
+<link rel="canonical" href="https://sixandahalf.studio/glimmerline/">
+<link rel="icon" type="image/png" href="/glimmerline/img/icon-64.png">
+<link rel="apple-touch-icon" href="/glimmerline/img/icon-180.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Glimmerline: Light Path Puzzle">
+<meta property="og:description" content="Draw one thread of light through every cell. A calm logic puzzle, new every day.">
+<meta property="og:url" content="https://sixandahalf.studio/glimmerline/">
+<meta property="og:image" content="https://sixandahalf.studio/glimmerline/img/og.png">
+<meta property="og:image:width" content="1024">
+<meta property="og:image:height" content="500">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="/assets/fonts/fredoka.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/nunito.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/glimmerline/glimmerline.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoGame",
+  "name": "Glimmerline: Light Path Puzzle",
+  "url": "https://sixandahalf.studio/glimmerline/",
+  "image": "https://sixandahalf.studio/glimmerline/img/og.png",
+  "description": "Draw one thread of light through every cell. A calm logic puzzle, new every day.",
+  "genre": "Puzzle",
+  "gamePlatform": "Android",
+  "operatingSystem": "Android 7.0 and up",
+  "applicationCategory": "GameApplication",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "publisher": { "@type": "Organization", "name": "Six and a Half Studios LLC", "url": "https://sixandahalf.studio/" }
+}
+</script>
+</head>
+<body>
+<!-- At launch: delete the data-soon attribute from both store links on this page (and the one on the home page). -->
+
+<div class="sky" aria-hidden="true">
+  <i class="glow"></i>
+  <i class="dust"></i>
+  <div class="embers">
+    <i style="--x:6;--s:3px;--t:13s;--d:-2s;--sway:3vw"></i>
+    <i style="--x:14;--s:2px;--t:17s;--d:-9s;--sway:-2vw"></i>
+    <i style="--x:23;--s:4px;--t:11s;--d:-5s;--sway:4vw"></i>
+    <i style="--x:31;--s:2px;--t:19s;--d:-13s;--sway:-3vw"></i>
+    <i style="--x:39;--s:3px;--t:14s;--d:-7s;--sway:2vw"></i>
+    <i style="--x:47;--s:2px;--t:16s;--d:-1s;--sway:-4vw"></i>
+    <i style="--x:55;--s:4px;--t:12s;--d:-10s;--sway:3vw"></i>
+    <i style="--x:63;--s:2px;--t:18s;--d:-4s;--sway:-2vw"></i>
+    <i style="--x:71;--s:3px;--t:13s;--d:-11s;--sway:4vw"></i>
+    <i style="--x:79;--s:2px;--t:20s;--d:-6s;--sway:-3vw"></i>
+    <i style="--x:87;--s:3px;--t:15s;--d:-14s;--sway:2vw"></i>
+    <i style="--x:94;--s:2px;--t:17s;--d:-8s;--sway:-4vw"></i>
+  </div>
+</div>
+
+<header class="wrap top">
+  <a class="brand" href="/glimmerline/" aria-label="Glimmerline">
+    <img src="/glimmerline/img/icon-180.png" alt="" width="36" height="36">
+    <span>Glimmerline</span>
+  </a>
+  <a class="studio" href="/">Six and a Half Studios</a>
+</header>
+
+<main>
+  <div class="wrap hero">
+    <div class="intro">
+      <h1>Draw one thread of light.</h1>
+      <p class="lede">A calm logic puzzle for Android. Start on bead 1, pass the beads in order, fill every cell and finish on the last bead.</p>
+    </div>
+
+    <div class="play" id="play" hidden>
+      <div class="play-head">
+        <div class="levels" id="levels" role="group" aria-label="Journey level">
+          <span class="levels-label" aria-hidden="true"><span class="wide">Journey </span>level</span>
+        </div>
+        <output class="count" id="count" aria-label="Cells filled">0 / 25</output>
+      </div>
+      <svg class="board idle" id="board" tabindex="0" role="application" aria-describedby="board-help"
+           viewBox="-6 -6 512 512" xmlns="http://www.w3.org/2000/svg"></svg>
+      <p class="sr-only" id="board-help">Arrow keys draw the thread from bead 1 and step back along it. Backspace undoes one cell. Escape clears the board.</p>
+      <p class="status" id="status" role="status">Start on bead 1 and drag the thread through every cell.</p>
+      <div class="tools">
+        <button class="btn" id="undo" type="button">Undo</button>
+        <button class="btn" id="clear" type="button">Clear</button>
+        <button class="btn" id="hint" type="button">Hint</button>
+        <button class="btn primary" id="next" type="button" hidden>Next level</button>
+      </div>
+      <div class="themes">
+        <div class="swatches" id="swatches" role="radiogroup" aria-label="Theme"></div>
+        <p class="theme-line"><b id="theme-name">Luminous Glass</b>One of nine themes<span id="theme-note"></span>. In the game, stars unlock them.</p>
+      </div>
+    </div>
+    <noscript><p class="lede">The playable board needs JavaScript. The screenshots below show the game.</p></noscript>
+
+    <div class="cta">
+      <a class="store" data-soon href="https://play.google.com/store/apps/details?id=com.sixandahalf.glimmerline">
+        <span class="when-soon">Coming soon to Google Play</span><span class="when-live">Get it on Google Play</span>
+      </a>
+      <p class="fine">Free to play, no account. The board here runs four real levels from the game.</p>
+    </div>
+  </div>
+
+  <section class="wrap modes" aria-labelledby="modes-h">
+    <h2 id="modes-h">Three ways to play</h2>
+    <div class="modes-grid">
+      <div>
+        <h3>Daily</h3>
+        <p>One board, the same for every player, new each day. Keep a streak going and share your time with a card that shows the grid without giving the solution away.</p>
+      </div>
+      <div>
+        <h3>Journey</h3>
+        <p>Hundreds of levels in chapters of ten. Grids grow from 5×5 to 8×8, with a gentler level every fifth one. A clean solve under par earns three stars, and stars unlock themes.</p>
+      </div>
+      <div>
+        <h3>Quick Play</h3>
+        <p>Pick a grid size and a difficulty, from easy to expert, and chase your best time. The timer only counts up. There is no game over.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="shots" aria-labelledby="shots-h">
+    <div class="wrap shots-head">
+      <h2 id="shots-h">What it looks like</h2>
+      <div class="strip-nav" id="strip-nav" hidden>
+        <button class="btn" type="button" data-dir="-1" aria-label="Earlier screenshots">&lsaquo;</button>
+        <button class="btn" type="button" data-dir="1" aria-label="More screenshots">&rsaquo;</button>
+      </div>
+    </div>
+    <ul class="strip" id="strip" tabindex="0" aria-label="Screenshots from the game">
+      <li><img src="/glimmerline/img/shot-solve-360.webp" srcset="/glimmerline/img/shot-solve-360.webp 360w, /glimmerline/img/shot-solve-720.webp 720w" sizes="(min-width: 26rem) 264px, 64vw" width="360" height="640" alt="A solved 6 by 6 board: one glowing thread fills every cell. Caption: Light up the whole grid."></li>
+      <li><img src="/glimmerline/img/shot-draw-360.webp" srcset="/glimmerline/img/shot-draw-360.webp 360w, /glimmerline/img/shot-draw-720.webp 720w" sizes="(min-width: 26rem) 264px, 64vw" width="360" height="640" loading="lazy" alt="A 7 by 7 board halfway through, the thread passing beads 1 to 7. Caption: Draw one thread through every cell."></li>
+      <li><img src="/glimmerline/img/shot-results-360.webp" srcset="/glimmerline/img/shot-results-360.webp 360w, /glimmerline/img/shot-results-720.webp 720w" sizes="(min-width: 26rem) 264px, 64vw" width="360" height="640" loading="lazy" alt="The results screen with three stars and a Flawless thread badge. Caption: Beat par for three stars."></li>
+      <li><img src="/glimmerline/img/shot-journey-360.webp" srcset="/glimmerline/img/shot-journey-360.webp 360w, /glimmerline/img/shot-journey-720.webp 720w" sizes="(min-width: 26rem) 264px, 64vw" width="360" height="640" loading="lazy" alt="The Journey map, a winding path of numbered levels. Caption: Hundreds of levels, ten per chapter."></li>
+      <li><img src="/glimmerline/img/shot-themes-360.webp" srcset="/glimmerline/img/shot-themes-360.webp 360w, /glimmerline/img/shot-themes-720.webp 720w" sizes="(min-width: 26rem) 264px, 64vw" width="360" height="640" loading="lazy" alt="The Themes screen showing Aurora, Neon and Prism. Caption: Unlock themes with stars."></li>
+      <li><img src="/glimmerline/img/shot-tide-360.webp" srcset="/glimmerline/img/shot-tide-360.webp 360w, /glimmerline/img/shot-tide-720.webp 720w" sizes="(min-width: 26rem) 264px, 64vw" width="360" height="640" loading="lazy" alt="A board in the Tide theme, with a green thread on deep teal. Caption: Nine themes, three of them animated."></li>
+    </ul>
+  </section>
+
+  <section class="wrap feel" aria-labelledby="feel-h">
+    <h2 id="feel-h">Made to feel good</h2>
+    <div class="feel-grid">
+      <p>Cells light up as the thread passes, each bead chimes one note higher than the last, and solving sends a pulse of light down the whole path. Every puzzle has exactly one solution, so a wrong turn is never the end: slide back along the thread and try another way.</p>
+      <div>
+        <h3>Set it up your way</h3>
+        <ul>
+          <li>A color-blind palette, with glyphs on the beads</li>
+          <li>Reduce motion, which stills the animated themes</li>
+          <li>Left- or right-hand controls</li>
+          <li>Adjustable text size</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap free" aria-labelledby="free-h">
+    <h2 id="free-h">Every puzzle is free, with no daily limit.</h2>
+    <div class="cols">
+      <p>Puzzles are never made harder to sell you anything. The puzzle logic cannot see ads or purchases, and that is tested.</p>
+      <p>There are two things you can buy if you want them: every theme at once, or a pack of hints. The first hint on every puzzle is free.</p>
+      <p>No account, no sign-in, and no timers that run out.</p>
+    </div>
+  </section>
+
+  <section class="wrap details" aria-labelledby="details-h">
+    <h2 id="details-h">Details</h2>
+    <dl>
+      <div><dt>Platform</dt><dd>Android 7.0 and up</dd></div>
+      <div><dt>Price</dt><dd>Free, with optional purchases</dd></div>
+      <div><dt>Language</dt><dd>English</dd></div>
+      <div><dt>Age rating</dt><dd>Everyone</dd></div>
+      <div><dt>Publisher</dt><dd><a href="/">Six and a Half Studios LLC</a></dd></div>
+      <div><dt>Support</dt><dd><a href="mailto:contact@sixandahalf.studio">contact@sixandahalf.studio</a></dd></div>
+      <div><dt>Privacy</dt><dd><a href="/privacy/">Privacy policy</a></dd></div>
+    </dl>
+  </section>
+
+  <section class="wrap get" aria-labelledby="get-h">
+    <h2 id="get-h">Finish on the last bead.</h2>
+    <a class="store" data-soon href="https://play.google.com/store/apps/details?id=com.sixandahalf.glimmerline">
+      <span class="when-soon">Coming soon to Google Play</span><span class="when-live">Get it on Google Play</span>
+    </a>
+    <p class="fine"><span class="when-soon">Glimmerline is on its way to Google Play, for Android phones and tablets.</span><span class="when-live">Free on Google Play, for Android phones and tablets.</span></p>
+  </section>
+</main>
+
+<footer class="wrap">
+  <div class="row">
+    <a href="/">Six and a Half Studios</a>
+    <a href="/privacy/">Privacy policy</a>
+    <a href="mailto:contact@sixandahalf.studio">contact@sixandahalf.studio</a>
+  </div>
+  <p class="legal">© 2026 Six and a Half Studios LLC. Google Play is a trademark of Google LLC.</p>
+</footer>
+
+<script src="/glimmerline/glimmerline.js" defer></script>
+</body>
+</html>

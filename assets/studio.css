@@ -1,0 +1,207 @@
+/* Six and a Half Studios — sixandahalf.studio
+   The studio lives between floors 6 and 7. The page is the lift shaft: floor lines
+   with their numbers, and the studio wedged between two of them. */
+
+@font-face {
+  font-family: "Anybody";
+  src: url("/assets/fonts/anybody.woff2") format("woff2");
+  font-weight: 100 900;
+  font-stretch: 50% 150%;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Newsreader";
+  src: url("/assets/fonts/newsreader.woff2") format("woff2");
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Newsreader";
+  src: url("/assets/fonts/newsreader-italic.woff2") format("woff2");
+  font-weight: 200 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: dark;
+  --shaft: #130908;
+  --paper: #f2e6d0;
+  --brass: #c9a06a;
+  --ember: #f0801e;
+  --rust: #b3401f;
+  --rule: rgb(242 230 208 / 0.2);
+  --dim: rgb(242 230 208 / 0.7);
+  --gutter: clamp(1.125rem, 4.5vw, 2.5rem);
+  --display: "Anybody", "Arial Black", Impact, sans-serif;
+  --text: "Newsreader", Georgia, "Times New Roman", serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  min-height: 100svh;
+  font: 400 1.1875rem/1.62 var(--text);
+  color: var(--paper);
+  background: var(--shaft);
+  overflow-x: clip;
+}
+
+h1, h2, h3 { margin: 0; font-family: var(--display); color: var(--paper); text-wrap: balance; }
+p { margin: 0; text-wrap: pretty; }
+a { color: var(--ember); text-decoration-thickness: 0.07em; text-underline-offset: 0.18em; }
+a:hover { text-decoration-thickness: 0.14em; }
+:focus-visible { outline: 3px solid var(--ember); outline-offset: 3px; border-radius: 0.375rem; }
+
+.wrap { width: min(100% - 2 * var(--gutter), 68rem); margin-inline: auto; }
+
+/* ---- Floor lines ---- */
+
+.slab {
+  display: flex; align-items: center; gap: 0.875rem;
+  padding-left: max(var(--gutter), (100% - 68rem) / 2);
+  font: 800 0.9375rem/1 var(--display); font-stretch: 125%;
+  color: var(--brass); font-variant-numeric: lining-nums;
+}
+.slab::after { content: ""; flex: 1; height: 1px; background: var(--rule); }
+.slab.floor { font-size: 1.125rem; color: var(--paper); }
+.slab.floor::after { height: 0.4375rem; background: var(--paper); }
+
+/* ---- Between floors ---- */
+
+.shaft { padding-top: clamp(1.25rem, 4vw, 2.75rem); }
+.between {
+  --half: clamp(7.5rem, 34vw, 18.5rem);
+  display: grid; align-items: end; gap: 1.5rem clamp(2rem, 5vw, 4rem);
+  padding-block: calc(var(--half) * 0.1) max(1.125rem, calc(var(--half) * 0.07));
+}
+.half {
+  margin: 0; font-family: var(--display); font-size: var(--half); line-height: 0.74;
+  font-variation-settings: "wdth" 150, "wght" 900; letter-spacing: -0.035em;
+  color: var(--ember); white-space: nowrap; transform-origin: 0 100%;
+  font-variant-numeric: lining-nums; margin-bottom: calc(var(--half) * -0.05);
+}
+.who h1 { font-size: clamp(1.5rem, 1.2rem + 1.4vw, 2rem); font-weight: 800; font-stretch: 110%; line-height: 1.06; letter-spacing: -0.005em; }
+.who .tag { margin-top: 0.625rem; font-style: italic; font-size: clamp(1.25rem, 1.05rem + 0.8vw, 1.625rem); line-height: 1.3; color: var(--brass); }
+@media (min-width: 75rem) {
+  .between { grid-template-columns: auto minmax(0, 1fr); padding-bottom: calc(var(--half) * 0.02); }
+  .who { padding-bottom: calc(var(--half) * 0.075); }
+}
+
+/* The one moment of motion: floor 7 comes down and presses the number flat. */
+@keyframes press {
+  from { font-variation-settings: "wdth" 58, "wght" 900; transform: scaleY(1.4); }
+  to { font-variation-settings: "wdth" 150, "wght" 900; transform: none; }
+}
+@keyframes lower {
+  from { transform: translateY(calc(var(--half) * -0.3)); }
+  to { transform: none; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .between .half { animation: press 0.95s cubic-bezier(0.3, 1.25, 0.4, 1) 0.35s both; }
+  .shaft .slab.top { --half: clamp(7.5rem, 34vw, 18.5rem); animation: lower 0.95s cubic-bezier(0.3, 1.25, 0.4, 1) 0.35s both; }
+}
+
+/* ---- Levels ---- */
+
+.level { padding-block: clamp(2.75rem, 7vw, 5rem) clamp(3.25rem, 8vw, 6rem); }
+.level > h2 { font-size: clamp(1.75rem, 1.3rem + 1.9vw, 2.5rem); font-weight: 800; font-stretch: 118%; line-height: 1.05; }
+.level > h2 + * { margin-top: clamp(1.5rem, 3.5vw, 2.5rem); }
+
+.game { display: grid; gap: 1.5rem clamp(2rem, 5vw, 4rem); align-items: center; }
+.game-art { display: block; width: min(72%, 21rem); border-radius: 22%; overflow: hidden;
+  box-shadow: 0 0 0 1px rgb(255 255 255 / 0.08), 0 1.5rem 4rem -1rem rgb(63 211 255 / 0.28); }
+.game-art svg { display: block; width: 100%; height: auto; }
+.game h3 { font-size: clamp(1.75rem, 1.3rem + 2vw, 2.625rem); font-weight: 800; font-stretch: 112%; line-height: 1.05; }
+.game h3 a { color: inherit; text-decoration: none; }
+.game h3 a:hover { text-decoration: underline; text-decoration-color: var(--ember); }
+.game .kind { margin-top: 0.375rem; font-style: italic; color: var(--brass); }
+.game .about { margin-top: 1rem; max-width: 34em; color: var(--dim); }
+.actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.5rem; }
+@media (min-width: 48rem) {
+  .game { grid-template-columns: minmax(0, 21rem) minmax(0, 1fr); }
+  .game-art { width: 100%; }
+}
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; min-height: 3rem;
+  padding: 0.5rem 1.375rem; border-radius: 999px; text-decoration: none;
+  font: 700 0.9375rem/1.2 var(--display); font-stretch: 108%; letter-spacing: 0.01em;
+  color: var(--shaft); background: var(--ember); border: 1px solid var(--ember);
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+.btn:hover { background: #ff9a45; border-color: #ff9a45; }
+.btn.quiet { color: var(--paper); background: transparent; border-color: rgb(201 160 106 / 0.6); }
+.btn.quiet:hover { background: rgb(201 160 106 / 0.12); border-color: var(--brass); }
+/* Once a game is live its store button leads and the browser demo steps back. */
+.btn.store:not([data-soon]) { color: var(--shaft); background: var(--ember); border-color: var(--ember); }
+.btn.store:not([data-soon]):hover { background: #ff9a45; border-color: #ff9a45; }
+.actions:has(.store:not([data-soon])) .btn:not(.store) { color: var(--paper); background: transparent; border-color: rgb(201 160 106 / 0.6); }
+.actions:has(.store:not([data-soon])) .btn:not(.store):hover { background: rgb(201 160 106 / 0.12); border-color: var(--brass); }
+.store .when-soon { display: none; }
+.store[data-soon] { pointer-events: none; color: var(--brass); }
+.store[data-soon] .when-soon { display: inline; }
+.store[data-soon] .when-live { display: none; }
+
+.prose { display: grid; gap: 1.125rem; max-width: 36em; }
+.prose p { color: var(--dim); }
+.prose p:first-child { font-size: clamp(1.3125rem, 1.1rem + 0.9vw, 1.6875rem); line-height: 1.42; color: var(--paper); }
+
+.contact { display: grid; gap: 2rem clamp(2rem, 6vw, 5rem); }
+.contact .mail { font: 700 clamp(1.125rem, 0.7rem + 2.2vw, 1.875rem)/1.2 var(--display); font-stretch: 105%; overflow-wrap: anywhere; }
+.contact address { margin-top: 1.25rem; font-style: normal; color: var(--dim); }
+.contact .links { margin-top: 1.25rem; }
+.notice { align-self: start; padding: 1.25rem 1.5rem; border: 1px solid rgb(201 160 106 / 0.5); border-radius: 0.25rem; max-width: 24rem; }
+.notice h3 { font-size: 0.9375rem; font-weight: 800; font-stretch: 125%; color: var(--brass); }
+.notice p { margin-top: 0.5rem; font-style: italic; }
+@media (min-width: 48rem) { .contact { grid-template-columns: minmax(0, 1fr) auto; } }
+
+footer { padding-block: 1.5rem 3rem; font-size: 0.875rem; color: var(--dim); }
+footer .row { display: flex; flex-wrap: wrap; gap: 0.375rem 1.5rem; margin-top: 1.5rem; }
+
+/* ---- Long documents (the privacy policy) ---- */
+
+.doc-top { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; padding-block: 1.25rem; }
+.doc-top a { text-decoration: none; }
+.mark { font: 800 1.0625rem/1 var(--display); font-stretch: 112%; color: var(--paper); }
+.mark b { font-variation-settings: "wdth" 150, "wght" 900; color: var(--ember); margin-right: 0.5rem; }
+.mark { white-space: nowrap; }
+.doc-top .back { font-size: 0.9375rem; font-style: italic; color: var(--dim); white-space: nowrap; }
+@media (max-width: 30rem) { .doc-top .back { display: none; } }
+.doc-top .back:hover { color: var(--paper); }
+
+.doc { width: min(100% - 2 * var(--gutter), 44rem); margin-inline: auto; padding-block: clamp(1.5rem, 5vw, 3.5rem) 4rem; }
+.doc h1 { font-size: clamp(2.125rem, 1.4rem + 3.2vw, 3.5rem); font-weight: 800; font-stretch: 118%; line-height: 1.02; }
+.doc .updated { margin-top: 0.875rem; font-style: italic; color: var(--dim); }
+.doc h2 { margin-top: 2.75rem; font-size: 1.375rem; font-weight: 800; font-stretch: 110%; line-height: 1.2; }
+.doc h3 { margin-top: 1.5rem; font-size: 1.0625rem; font-weight: 700; font-stretch: 106%; }
+.doc p, .doc ul { margin-top: 0.875rem; }
+.doc ul { padding-left: 1.25rem; }
+.doc li + li { margin-top: 0.375rem; }
+.doc .box { margin-top: 2rem; padding: 1.125rem 1.25rem; border-left: 3px solid var(--ember); background: rgb(242 230 208 / 0.06); border-radius: 0 0.375rem 0.375rem 0; }
+.doc .scroll { margin-top: 1rem; overflow-x: auto; }
+.doc table { border-collapse: collapse; width: 100%; font-size: 0.9375rem; line-height: 1.45; }
+.doc th, .doc td { border: 1px solid var(--rule); padding: 0.5rem 0.625rem; text-align: left; vertical-align: top; }
+.doc th { font: 700 0.875rem/1.3 var(--display); font-stretch: 106%; }
+.doc code { font-size: 0.88em; overflow-wrap: anywhere; }
+.doc-foot { margin-top: 3.5rem; padding-top: 1.25rem; border-top: 1px solid var(--rule); font-size: 0.9375rem; font-style: italic; color: var(--dim); }
+
+/* A long legal text reads better on paper for people whose devices prefer light. */
+@media (prefers-color-scheme: light) {
+  :root.paper {
+    color-scheme: light;
+    --shaft: #f7f0e3; --paper: #241311; --brass: #8a5a1c; --ember: #b3401f;
+    --rule: rgb(36 19 17 / 0.22); --dim: rgb(36 19 17 / 0.74);
+  }
+  :root.paper .doc .box { background: rgb(36 19 17 / 0.05); }
+}
+
+/* ---- The floor that is not there (404) ---- */
+
+.lost { padding-block: clamp(2.5rem, 8vw, 5rem); }
+.lost h1 { font-size: clamp(2rem, 1.3rem + 3.4vw, 3.75rem); font-weight: 800; font-stretch: 118%; line-height: 1.02; max-width: 14em; }
+.lost p { margin-top: 1.125rem; max-width: 32em; color: var(--dim); }
+.lost .actions { margin-top: 2rem; }

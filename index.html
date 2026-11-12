@@ -4,79 +4,161 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Six and a Half Studios</title>
-<meta name="description" content="Six and a Half Studios — an independent mobile game studio. Makers of Glimmerline, a light-path puzzle for Android.">
-<style>
-  :root { color-scheme: dark; }
-  body { font-family: Georgia, 'Times New Roman', serif; background: #120808; color: #f2e6d0;
-         max-width: 640px; margin: 0 auto; padding: 4rem 1.5rem; line-height: 1.7; text-align: center; }
-  .flame { font-size: 3rem; }
-  h1 { font-size: 2rem; letter-spacing: .12em; margin: .5rem 0 0; }
-  .tag { color: #c9a06a; font-style: italic; margin-top: .25rem; }
-  .divider { color: #b3401f; margin: 2.5rem 0 2rem; letter-spacing: .5em; }
-  .game { border: 1px solid #b3401f66; border-radius: 12px; padding: 1.75rem 1.5rem; background: #1a0d0b; }
-  .game + .game { margin-top: 1.5rem; }
-  .game h2 { margin: 0; color: #f0801e; }
-  .game-head { display: flex; align-items: center; justify-content: center; gap: 1.1rem; margin-bottom: .9rem; }
-  .game-head img { width: 84px; height: 84px; border-radius: 20px; flex: none;
-                   box-shadow: 0 0 0 1px #ffffff14, 0 0 28px 2px #5ad7ff40; }
-  .game-head h2 { text-align: left; line-height: 1.2; }
-  .game-head .kind { display: block; font-size: .8rem; letter-spacing: .14em; text-transform: uppercase;
-                     color: #c9a06a; margin-top: .3rem; }
-  .game p { margin: 0 0 1.2rem; }
-  .store { display: inline-block; padding: .45rem 1.15rem; border: 1px solid #c9a06a88; border-radius: 999px;
-           font-size: .85rem; color: #c9a06a; text-decoration: none; transition: background .15s, border-color .15s; }
-  .store:hover { background: #c9a06a1a; border-color: #c9a06a; }
-  .store .when-soon { display: none; }
-  .store[data-soon] { pointer-events: none; }
-  .store[data-soon] .when-soon { display: inline; }
-  .store[data-soon] .when-live { display: none; }
-  a { color: #f0801e; }
-  footer { margin-top: 3.5rem; font-size: .8rem; opacity: .65; }
-  footer .egg { opacity: .8; }
-  footer .legal { font-size: .72rem; opacity: .7; margin-top: 1.2rem; }
-  @media (max-width: 420px) {
-    .game-head { flex-direction: column; gap: .8rem; }
-    .game-head h2 { text-align: center; }
+<meta name="description" content="Six and a Half Studios is an independent mobile game studio. Makers of Glimmerline, a calm light-path puzzle for Android.">
+<meta name="theme-color" content="#130908">
+<link rel="canonical" href="https://sixandahalf.studio/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.png" type="image/png" sizes="96x96">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Six and a Half Studios">
+<meta property="og:description" content="We make games between floors. Makers of Glimmerline, a calm light-path puzzle for Android.">
+<meta property="og:url" content="https://sixandahalf.studio/">
+<meta property="og:image" content="https://sixandahalf.studio/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="/assets/fonts/anybody.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/newsreader.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/studio.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Six and a Half Studios",
+  "legalName": "Six and a Half Studios LLC",
+  "url": "https://sixandahalf.studio/",
+  "logo": "https://sixandahalf.studio/apple-touch-icon.png",
+  "email": "contact@sixandahalf.studio",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "1209 Mountain Road Pl NE Ste N",
+    "addressLocality": "Albuquerque",
+    "addressRegion": "NM",
+    "postalCode": "87110",
+    "addressCountry": "US"
   }
-</style>
+}
+</script>
 </head>
 <body>
-<div class="flame">🔥</div>
-<h1>SIX AND A HALF STUDIOS</h1>
-<p class="tag">We make games between floors.</p>
 
-<p class="divider">⛧ ⛧ ⛧</p>
-
-<div class="game">
-  <div class="game-head">
-    <img src="assets/glimmerline-icon.png" alt="Glimmerline icon: a glowing thread winding between two beads" width="84" height="84">
-    <h2>Glimmerline<span class="kind">Light path puzzle · Android</span></h2>
+<header class="shaft">
+  <div class="slab floor top" aria-hidden="true">7</div>
+  <div class="wrap between">
+    <p class="half" aria-hidden="true">6½</p>
+    <div class="who">
+      <h1>Six and a Half Studios</h1>
+      <p class="tag">We make games between floors.</p>
+    </div>
   </div>
-  <p>A light-path puzzle. Draw one thread from bead 1 through every cell,
-  pass the beads in order, and finish on the last one. Hundreds of Journey
-  levels, a Daily board shared by everyone, and a timer that only ever counts up.
-  No game over. Ever.</p>
-  <!-- At launch: delete the data-soon attribute. -->
-  <a class="store" data-soon href="https://play.google.com/store/apps/details?id=com.sixandahalf.glimmerline">
-    <span class="when-soon">Coming soon to Google Play</span><span class="when-live">Get it on Google Play ↗</span>
-  </a>
-</div>
+  <div class="slab floor" aria-hidden="true">6</div>
+</header>
+
+<main>
+  <section class="wrap level" aria-labelledby="games-h">
+    <h2 id="games-h">Games</h2>
+
+    <article class="game">
+      <a class="game-art" href="/glimmerline/" tabindex="-1" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+          <defs>
+            <linearGradient id="gl-bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E1430"/><stop offset="1" stop-color="#1B2150"/></linearGradient>
+            <radialGradient id="gl-glow" cx="0.5" cy="0.35" r="0.6"><stop offset="0" stop-color="#384CB3" stop-opacity="0.5"/><stop offset="1" stop-color="#384CB3" stop-opacity="0"/></radialGradient>
+            <filter id="gl-blur" filterUnits="userSpaceOnUse" x="0" y="0" width="1024" height="1024"><feGaussianBlur stdDeviation="30"/></filter>
+          </defs>
+          <rect width="1024" height="1024" fill="url(#gl-bg)"/>
+          <rect width="1024" height="1024" fill="url(#gl-glow)"/>
+          <g fill="#fff" fill-opacity="0.09" stroke="#fff" stroke-opacity="0.16" stroke-width="4">
+            <rect x="173.1" y="173.1" width="213.5" height="213.5" rx="41.8"/><rect x="405.2" y="173.1" width="213.5" height="213.5" rx="41.8"/><rect x="637.3" y="173.1" width="213.5" height="213.5" rx="41.8"/>
+            <rect x="173.1" y="405.2" width="213.5" height="213.5" rx="41.8"/><rect x="405.2" y="405.2" width="213.5" height="213.5" rx="41.8"/><rect x="637.3" y="405.2" width="213.5" height="213.5" rx="41.8"/>
+            <rect x="173.1" y="637.3" width="213.5" height="213.5" rx="41.8"/><rect x="405.2" y="637.3" width="213.5" height="213.5" rx="41.8"/><rect x="637.3" y="637.3" width="213.5" height="213.5" rx="41.8"/>
+          </g>
+          <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="279.9,279.9 744.1,279.9 744.1,512 279.9,512 279.9,744.1 744.1,744.1" stroke="#3FD3FF" stroke-opacity="0.6" stroke-width="186" filter="url(#gl-blur)"/>
+            <polyline points="279.9,279.9 744.1,279.9 744.1,512 279.9,512 279.9,744.1 744.1,744.1" stroke="#3FD3FF" stroke-width="116"/>
+            <polyline points="279.9,279.9 744.1,279.9 744.1,512 279.9,512 279.9,744.1 744.1,744.1" stroke="#EBFAFF" stroke-opacity="0.65" stroke-width="39"/>
+          </g>
+          <circle cx="279.9" cy="279.9" r="77" fill="#FFD166"/>
+          <circle cx="744.1" cy="744.1" r="77" fill="#FFD166"/>
+        </svg>
+      </a>
+      <div>
+        <h3><a href="/glimmerline/">Glimmerline</a></h3>
+        <p class="kind">A light-path puzzle for Android</p>
+        <p class="about">Draw one thread from bead 1 through every cell, pass the beads in order, and finish on the last one. Hundreds of Journey levels, a Daily board shared by everyone, and a timer that only ever counts up. No game over. Ever.</p>
+        <p class="actions">
+          <a class="btn" href="/glimmerline/">Try four levels in your browser</a>
+          <!-- At launch: delete the data-soon attribute (here and on both store links on the Glimmerline page). -->
+          <a class="btn quiet store" data-soon href="https://play.google.com/store/apps/details?id=com.sixandahalf.glimmerline">
+            <span class="when-soon">Coming soon to Google Play</span><span class="when-live">Get it on Google Play</span>
+          </a>
+        </p>
+      </div>
+    </article>
 
 <!-- Unpublished until the name is registered.
-<div class="game">
-  <h2>Underworld Inc.</h2>
-  <p>A dark-comedy management sim about Hell's most inefficient bureaucracy.
-  Answer the phones. Run the board. Redact the feelings. Adjourn the meeting.
-  Climb the corporate ladder until the only promotion left is ceasing to exist.</p>
-  <span class="soon">Coming soon to Google Play</span>
-</div>
+    <article class="game">
+      <div>
+        <h3>Underworld Inc.</h3>
+        <p class="kind">A dark-comedy management sim</p>
+        <p class="about">A dark-comedy management sim about Hell's most inefficient bureaucracy.
+        Answer the phones. Run the board. Redact the feelings. Adjourn the meeting.
+        Climb the corporate ladder until the only promotion left is ceasing to exist.</p>
+        <p class="actions"><span class="btn quiet store" data-soon><span class="when-soon">Coming soon to Google Play</span></span></p>
+      </div>
+    </article>
 -->
+  </section>
+
+  <div class="slab" aria-hidden="true">5</div>
+
+  <section class="wrap level" aria-labelledby="studio-h">
+    <h2 id="studio-h">The studio</h2>
+    <div class="prose">
+      <p>Six and a Half Studios is an independent studio that makes small games for phones.</p>
+      <p>Our games have no accounts, no sign-ins and no friends lists. Your progress lives on your device. When a game is free we say exactly what that means, and we never make a puzzle harder to sell you something.</p>
+      <p>We are a small company registered in New Mexico, and we answer our own email.</p>
+    </div>
+  </section>
+
+  <div class="slab" aria-hidden="true">4</div>
+
+  <section class="wrap level" aria-labelledby="contact-h">
+    <h2 id="contact-h">Get in touch</h2>
+    <div class="contact">
+      <div>
+        <p class="mail"><a href="mailto:contact@sixandahalf.studio">contact@sixandahalf.studio</a></p>
+        <address>
+          Six and a Half Studios LLC<br>
+          1209 Mountain Road Pl NE Ste N<br>
+          Albuquerque, NM 87110, USA
+        </address>
+        <p class="links"><a href="/privacy/">Privacy policy</a></p>
+      </div>
+      <aside class="notice" aria-labelledby="notice-h">
+        <h3 id="notice-h">Notice</h3>
+        <p>The elevator is out of service between floors 6 and 7. Please use the stairs. There are no stairs.</p>
+      </aside>
+    </div>
+  </section>
+</main>
 
 <footer>
-  <p><a href="/privacy/">Privacy Policy</a> · <a href="mailto:contact@sixandahalf.studio">contact@sixandahalf.studio</a></p>
-  <p class="egg">The elevator is out of service between floors 6 and 7.<br>
-  Please use the stairs. There are no stairs.</p>
-  <p class="legal">© 2026 Six and a Half Studios LLC. Google Play is a trademark of Google LLC.</p>
+  <div class="slab" aria-hidden="true">L</div>
+  <div class="wrap row">
+    <span>© 2026 Six and a Half Studios LLC</span>
+    <span>Google Play is a trademark of Google LLC.</span>
+  </div>
 </footer>
+
+<script>
+  // "Coming soon": a store link with data-soon is not a link yet.
+  for (const a of document.querySelectorAll("a[data-soon]")) {
+    a.removeAttribute("href");
+    a.setAttribute("aria-disabled", "true");
+    a.setAttribute("role", "link");
+  }
+</script>
 </body>
 </html>
