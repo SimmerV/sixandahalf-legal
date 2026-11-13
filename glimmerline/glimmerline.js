@@ -454,13 +454,6 @@
 
   /* ---------- the rest of the page ---------- */
 
-  // "Coming soon": a store link with data-soon is not a link yet.
-  for (const a of document.querySelectorAll("a[data-soon]")) {
-    a.removeAttribute("href");
-    a.setAttribute("aria-disabled", "true");
-    a.setAttribute("role", "link");
-  }
-
   const strip = $("#strip");
   const nav = $("#strip-nav");
   if (strip && nav) {

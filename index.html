@@ -88,11 +88,8 @@
         <p class="kind">A light-path puzzle for Android</p>
         <p class="about">Draw one thread from bead 1 through every cell, pass the beads in order, and finish on the last one. Hundreds of Journey levels, a Daily board shared by everyone, and a timer that only ever counts up. No game over. Ever.</p>
         <p class="actions">
-          <a class="btn" href="/glimmerline/">Try four levels in your browser</a>
-          <!-- At launch: delete the data-soon attribute (here and on both store links on the Glimmerline page). -->
-          <a class="btn quiet store" data-soon href="https://play.google.com/store/apps/details?id=com.sixandahalf.glimmerline">
-            <span class="when-soon">Coming soon to Google Play</span><span class="when-live">Get it on Google Play</span>
-          </a>
+          <a class="btn" href="https://play.google.com/store/apps/details?id=com.sixandahalf.glimmerline">Get it on Google Play</a>
+          <a class="btn quiet" href="/glimmerline/">Try four levels in your browser</a>
         </p>
       </div>
     </article>
@@ -105,7 +102,7 @@
         <p class="about">A dark-comedy management sim about Hell's most inefficient bureaucracy.
         Answer the phones. Run the board. Redact the feelings. Adjourn the meeting.
         Climb the corporate ladder until the only promotion left is ceasing to exist.</p>
-        <p class="actions"><span class="btn quiet store" data-soon><span class="when-soon">Coming soon to Google Play</span></span></p>
+        <p class="actions"><span class="btn quiet soon">Coming soon to Google Play</span></p>
       </div>
     </article>
 -->
@@ -152,13 +149,5 @@
   </div>
 </footer>
 
-<script>
-  // "Coming soon": a store link with data-soon is not a link yet.
-  for (const a of document.querySelectorAll("a[data-soon]")) {
-    a.removeAttribute("href");
-    a.setAttribute("aria-disabled", "true");
-    a.setAttribute("role", "link");
-  }
-</script>
 </body>
 </html>

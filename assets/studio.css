@@ -136,15 +136,7 @@ a:hover { text-decoration-thickness: 0.14em; }
 .btn:hover { background: #ff9a45; border-color: #ff9a45; }
 .btn.quiet { color: var(--paper); background: transparent; border-color: rgb(201 160 106 / 0.6); }
 .btn.quiet:hover { background: rgb(201 160 106 / 0.12); border-color: var(--brass); }
-/* Once a game is live its store button leads and the browser demo steps back. */
-.btn.store:not([data-soon]) { color: var(--shaft); background: var(--ember); border-color: var(--ember); }
-.btn.store:not([data-soon]):hover { background: #ff9a45; border-color: #ff9a45; }
-.actions:has(.store:not([data-soon])) .btn:not(.store) { color: var(--paper); background: transparent; border-color: rgb(201 160 106 / 0.6); }
-.actions:has(.store:not([data-soon])) .btn:not(.store):hover { background: rgb(201 160 106 / 0.12); border-color: var(--brass); }
-.store .when-soon { display: none; }
-.store[data-soon] { pointer-events: none; color: var(--brass); }
-.store[data-soon] .when-soon { display: inline; }
-.store[data-soon] .when-live { display: none; }
+.btn.soon { pointer-events: none; color: var(--brass); }
 
 .prose { display: grid; gap: 1.125rem; max-width: 36em; }
 .prose p { color: var(--dim); }

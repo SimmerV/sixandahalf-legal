@@ -227,13 +227,6 @@ h1 { font-size: clamp(2.625rem, 1.35rem + 5.6vw, 4.625rem); line-height: 1; lett
   transition: translate 0.15s ease, box-shadow 0.15s ease;
 }
 .store:hover { translate: 0 -2px; }
-.store .when-soon { display: none; }
-.store[data-soon] {
-  pointer-events: none; color: var(--ink); background: var(--chrome);
-  border: 1px solid var(--chrome-rim); box-shadow: none;
-}
-.store[data-soon] .when-soon { display: inline; }
-.store[data-soon] .when-live { display: none; }
 
 @media (min-width: 60rem) {
   .hero {
@@ -391,7 +384,6 @@ h3 { font-size: 1.5rem; line-height: 1.2; }
 .get { text-align: center; padding-block: clamp(3rem, 7vw, 5.5rem) clamp(4rem, 9vw, 7rem); }
 .get .store { margin-top: 1.75rem; }
 .get .fine { margin: 1rem auto 0; font-size: 0.9375rem; color: var(--muted); max-width: 30em; }
-.get .store[data-soon] ~ .fine .when-live, .get .store:not([data-soon]) ~ .fine .when-soon { display: none; }
 
 footer { padding-block: 2rem 3rem; border-top: 1px solid var(--chrome-rim); font-size: 0.9375rem; color: var(--muted); }
 footer .row { display: flex; flex-wrap: wrap; gap: 0.5rem 1.75rem; align-items: baseline; }

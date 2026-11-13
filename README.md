@@ -12,8 +12,10 @@ Plain HTML, CSS and a little JavaScript. No build step, no analytics, no third-p
 - `assets/fonts/` — Anybody, Newsreader, Fredoka and Nunito (SIL Open Font License; licence texts alongside)
 - `app-ads.txt`, `robots.txt`, `sitemap.xml`
 
-## When a game goes live on Google Play
+## Store links
 
-Delete the `data-soon` attribute from its store links: one in `index.html` and two in `glimmerline/index.html`. The buttons then read "Get it on Google Play" and link to the listing.
+Glimmerline has been on Google Play since 12 November 2026. Its store links are in `index.html` (one) and `glimmerline/index.html` (two).
+
+A game that is not out yet gets a parked button on the home page, `<span class="btn quiet soon">Coming soon to Google Play</span>`. When its listing is live, replace the span with a link to the listing, as Glimmerline's card does.
 
 No game code lives here.
