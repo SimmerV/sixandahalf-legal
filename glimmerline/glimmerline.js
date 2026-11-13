@@ -1,8 +1,4 @@
-/* Glimmerline web demo.
-   The four boards are real Journey levels from the shipped game (levels 1, 6, 11 and 28),
-   and the rules below mirror the game's: start on bead 1, step through open edges into
-   unvisited cells, pass the beads in order, fill every cell, finish on the last bead.
-   Nothing is stored and nothing is sent anywhere. */
+/* Glimmerline web demo: four real Journey levels (1, 6, 11, 28) under the game's rules. Stores and sends nothing. */
 (() => {
   "use strict";
 
@@ -182,8 +178,7 @@
       return;
     }
     if (Math.abs(r - hr) === 1 && Math.abs(c - hc) === 1) {
-      // A cut corner. How far the finger is into the new cell along each axis says which
-      // neighbour it crossed; take that one if it is open, else the other.
+      // A cut corner: go around by the neighbour on the axis the pointer is deeper along, else by the other.
       const u = c > hc ? fx : 1 - fx;
       const v = r > hr ? fy : 1 - fy;
       const viaRow = hr * pz.cols + c; // the neighbour in the head's row
@@ -370,7 +365,7 @@
     }
   });
   const drop = () => { dragging = false; last = null; };
-  // Belt and braces for browsers that ignore touch-action on SVG: a finger on the board never scrolls the page.
+  // For browsers that ignore touch-action on SVG: a touch on the board never scrolls the page.
   for (const type of ["touchstart", "touchmove"]) svg.addEventListener(type, (ev) => ev.preventDefault(), { passive: false });
   svg.addEventListener("pointerup", drop);
   svg.addEventListener("pointercancel", drop);
